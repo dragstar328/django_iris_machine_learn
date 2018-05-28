@@ -1,0 +1,39 @@
+{% extends 'iris/base.html' %}
+
+{% block content %}
+<div>
+  <a href="{% url 'iris_classify' %}" class="btn btn-primary">New</a>
+  <a href="{% url 'init_clf' %}" class="btn btn-primary">Init_clf</a>
+
+</div>
+<br>
+<div style="height:70%; width:800px; overflow-y:scroll;">
+  <table class="table table-bordered table-hover table-responsive">
+    <tr>
+      <th>#</th>
+      <th>sepal length</th>
+      <th>sepal width</th>
+      <th>petal length</th>
+      <th>petal width</th>
+      <th>clasified</th>
+      <th>probability</th>
+      <th>classified date</th>
+      <th></th>
+    </tr>
+
+    {% for iris in iriss %}
+    <tr>
+      <td>{{ iris.id }}</td>
+      <td>{{ iris.sepal_length }}</td>
+      <td>{{ iris.sepal_width }}</td>
+      <td>{{ iris.petal_length }}</td>
+      <td>{{ iris.petal_width }}</td>
+      <td>{{ iris.classified }}</td>
+      <td>{{ iris.probability }}</td>
+      <td>{{ iris.classified_date }}</td>
+      <td><a href="{% url 'iris_view' iris.id %}" class="btn btn-primary">View</a>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock content %}
