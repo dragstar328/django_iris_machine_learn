@@ -14,10 +14,12 @@ class Iris(models.Model):
   classified = models.CharField(max_length=50, blank=True, null=True)
   classified_date = models.DateField(blank=True, null=True)
   probability = models.FloatField(blank=True, null=True)
+  clf_hash = models.IntegerField(blank=True, null=True)
 
   def set_classified(self, result):
     self.classified = result['classified']
     self.probability = result['probability']
+    self.clf_hash = result['clf_hash']
 
   def save_classify(self):
     self.classified_date = timezone.now()

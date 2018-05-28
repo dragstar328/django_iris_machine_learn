@@ -3,43 +3,51 @@
 {% block content %}
 
 <div>
+  <a href="/iris" class="btn btn-info">Back</a>
+</div>
+
+<div>
   <canvas id="myChart"></canvas>
 </div>
 <div>
   <table class="table table-borderd table-hover table-responsive">
     <tr>
       <td>sepal length</td>
-      <td>{{ iris.sepal_length }}</td>
+      <td>{{ object.sepal_length }}</td>
     </tr>
     <tr>
       <td>sepal width</td>
-      <td>{{ iris.sepal_width }}</td>
+      <td>{{ object.sepal_width }}</td>
     </tr>
     <tr>
       <td>petal length</td>
-      <td>{{ iris.petal_length }}</td>
+      <td>{{ object.petal_length }}</td>
     </tr>
     <tr>
       <td>petal width</td>
-      <td>{{ iris.petal_width }}</td>
+      <td>{{ object.petal_width }}</td>
     </tr>
     <tr>
       <td>classified</td>
-      <td>{{ iris.classified }}</td>
+      <td>{{ object.classified }}</td>
     </tr>
     <tr>
       <td>probability</td>
-      <td>{{ iris.probability }}</td>
+      <td>{{ object.probability }}</td>
     </tr>
     <tr>
       <td>classified date</td>
-      <td>{{ iris.classified_date }}</td>
+      <td>{{ object.classified_date }}</td>
+    </tr>
+    <tr>
+      <td>clf_hash(crc32)</td>
+      <td>{{ object.clf_hash }}</td>
+    </tr>
+    <tr>
+      <td>ID</td>
+      <td>{{ object.id }}</td>
     </tr>
  </table>
-</div>
-
-<div>
-  <a href="/iris" class="btn btn-primary">Back</a>
 </div>
 
 <script>

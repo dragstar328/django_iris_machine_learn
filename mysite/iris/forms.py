@@ -15,5 +15,6 @@ class IrisForm(forms.ModelForm):
               'petal_width',
               'classified',
               'probability',
+              'clf_hash'
              )
 

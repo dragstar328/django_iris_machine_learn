@@ -1,5 +1,6 @@
 from sklearn import svm, datasets, model_selection
 from sklearn.externals import joblib
+import binascii
 import os
 
 fname = 'iris/svm_classifier.joblib'
@@ -14,7 +15,6 @@ class IrisClassifier:
     clf.fit(iris.data, iris.target)
 
     joblib.dump(clf, fname)
-    print("DUMP!!")
 
   def predict(self, iris):
     if not os.path.exists(fname):
@@ -28,7 +28,15 @@ class IrisClassifier:
     pre = clf.predict([[sl, sw, pl, pw]])
     prob = clf.predict_proba([[sl, sw, pl, pw]])
 
-    return round(prob.max(), 4), classdict[pre[0]]
+    return round(prob.max(), 4), classdict[pre[0]], self.crc32()
+
+  def crc32(self):
+    if not os.path.exists(fname):
+      self.dump_classifier()
+
+    with open(fname, 'rb') as f:
+      checksum = binascii.crc32(f.read()) & 0xFFFFFFFF
+    return checksum
 
   @staticmethod
   def delete_dump():
