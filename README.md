@@ -1,0 +1,2 @@
+# django_iris_machine_learn
+djangoでIRISの機械学習アプリケーション
