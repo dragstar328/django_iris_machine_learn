@@ -27,7 +27,12 @@ def iris_classify(request):
 
     if form.is_valid():
       iris = form.save(commit=False)
-      predict = clf.predict(iris)
+      params = {'sepal_length':iris.sepal_length,
+                'sepal_width' :iris.sepal_width,
+                'petal_length':iris.petal_length,
+                'petal_width' :iris.petal_width}
+
+      predict = clf.predict(params)
       prob = predict[0]
       classified = predict[1]
       clf_hash = predict[2]

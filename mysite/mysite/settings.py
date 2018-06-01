@@ -25,7 +25,7 @@ SECRET_KEY = 'xpe(09c2$_$w$no-s_#=u0l=eyl6xqs!!2&&c40__i+$31)^=!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

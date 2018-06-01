@@ -21,10 +21,10 @@ class IrisClassifier:
       self.dump_classifier()
 
     clf = joblib.load(fname)
-    sl = iris.sepal_length
-    sw = iris.sepal_width
-    pl = iris.petal_length
-    pw = iris.petal_width
+    sl = iris['sepal_length']
+    sw = iris['sepal_width']
+    pl = iris['petal_length']
+    pw = iris['petal_width']
     pre = clf.predict([[sl, sw, pl, pw]])
     prob = clf.predict_proba([[sl, sw, pl, pw]])
 
